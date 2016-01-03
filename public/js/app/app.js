@@ -1,0 +1,1 @@
+var recipiesApp = angular.module('recipies', ['ui.bootstrap']);
