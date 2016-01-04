@@ -1,2 +1,5 @@
 # angularjs-reciepies
-Reciepies of AngularJs usages
+Recipes of AngularJs Patterns
+
+1. Modal Dialog Recipe
+
