@@ -1,5 +1,5 @@
 (function(){
-
+	//page controller
 	recipiesApp.controller('modalController',['$scope','$modal',function ($scope, $modal){
 		
 		$scope.getAge= function(){
@@ -10,13 +10,11 @@
             });
 		}
 	}])
-
+	//Modal Dialog controller
 	function ModalAgeController($scope, $modalInstance) {
         $scope.dialog = {
             title: 'Please confirm'
         };
-       
-        
         $scope.ok = function () {
             $modalInstance.close('success');
         };
@@ -25,6 +23,7 @@
             $modalInstance.dismiss('cancel');
         };
     }
+
     ModalAgeController.$inject = ['$scope', '$modalInstance'];
     recipiesApp.controller('ModalAgeController',ModalAgeController);
 })()
