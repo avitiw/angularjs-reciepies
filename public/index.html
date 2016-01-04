@@ -17,17 +17,19 @@
 <script src="./js/app/app.js"></script>
 <script src="./js/app/modalController.js"></script>
 </head>
-<body >
-	<div class="h1">
-		AngularJs Recipie - Modal Dialog
+<body class="container">
+	 
+	<div class="page-header">
+  		<h1>AngularJs Recipie - Modal Dialog <small>Using Bootstrap Modal dialog in AngularJs</small></h1>
 	</div>
 	<div class="row" ng-controller="modalController">
 		<div class="col-md-4">
-			Recipie 1 - Modal dialog
+			<p>Click here to open modal dialog</p>
+			<button class="btn btn-default" ng-click="getAge()" > Click </button>
 		</div>
 
 		<div class="col-md-4" >
-			<button class="btn btn-default" ng-click="getAge()" > Click </button>
+			
 		</div>
 		<div class="col-md-4">
 			{{age}}
