@@ -1,8 +1,8 @@
 var http = require('http'),
- webServer = require('./lib/webserver');
+webServer = require('./lib/webserver');
 
 var server = http.createServer();
- var port = process.env.PORT || 8124;
+var port = process.env.PORT || 8124;
 var webServer = new webServer(server);
 server.listen(port);
 

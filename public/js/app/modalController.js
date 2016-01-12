@@ -1,5 +1,6 @@
 (function(){
-	//page controller
+	
+    //page controller
 	recipiesApp.controller('modalController',['$scope','$modal',function ($scope, $modal){
 		
 		$scope.getAge= function(){
@@ -10,6 +11,7 @@
             });
 		}
 	}])
+
 	//Modal Dialog controller
 	function ModalAgeController($scope, $modalInstance) {
         $scope.dialog = {
