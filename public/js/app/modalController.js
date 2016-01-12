@@ -1,24 +1,33 @@
 (function(){
 	
     //page controller
-	recipiesApp.controller('modalController',['$scope','$modal',function ($scope, $modal){
+	recipiesApp.controller('modalController',['$scope','$modal','$log',function ($scope, $modal,$log){
 		
 		$scope.getAge= function(){
-			return $modal.open({
+			var modalInstance =  $modal.open({
                 templateUrl: 'age.dialog.html',
                 controller: ModalAgeController,
                 backdrop : 'static'                 
+            });
+
+            modalInstance.result.then(function (dateOfBirth) {
+                $scope.dateOfBirth = dateOfBirth;
+            },function(){
+                $log.info('Modal dismissed at: ' + new Date());
             });
 		}
 	}])
 
 	//Modal Dialog controller
-	function ModalAgeController($scope, $modalInstance) {
+	function ModalAgeController($scope, $log,$modalInstance) {
+        $scope.dob = {}
         $scope.dialog = {
             title: 'Please confirm'
         };
         $scope.ok = function () {
-            $modalInstance.close('success');
+            var dob = $scope.dob.date + "/" + $scope.dob.month + "/" + $scope.dob.year;
+            $log.info(dob);
+            $modalInstance.close(dob);
         };
 
         $scope.cancel = function () {
@@ -26,6 +35,6 @@
         };
     }
 
-    ModalAgeController.$inject = ['$scope', '$modalInstance'];
+    ModalAgeController.$inject = ['$scope', '$log','$modalInstance'];
     recipiesApp.controller('ModalAgeController',ModalAgeController);
 })()
