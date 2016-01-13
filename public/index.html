@@ -29,13 +29,66 @@
 		</div>
 
 		<div class="col-md-4" >
-			Selected date of birth: {{dateOfBirth}}
+			Selected date of birth: {{dateOfBirth | date:'medium'}}
 		</div>
 		<div class="col-md-4">
 			{{age}}
 		</div>
 	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<p> It shows the usage of AngularUI directive using Bootstrap CSS to display modal dialog.								
+			</p>
+		</div>
+	</div>
+	<div class="row"> 
+		<div class="col-md-12">
+			<pre>
+				<code>
+					(function(){
+	
+					    //page controller
+						recipiesApp.controller('modalController',['$scope','$modal','$log',function ($scope, $modal,$log){
+							
+							$scope.getAge= function(){
+								var modalInstance =  $modal.open({
+					                templateUrl: 'age.dialog.html',
+					                controller: ModalAgeController,
+					                backdrop : 'static'                 
+					            });
 
+					            modalInstance.result.then(function (dateOfBirth) {
+					                $scope.dateOfBirth = dateOfBirth;
+					            },function(){
+					                $log.info('Modal dismissed at: ' + new Date());
+					            });
+							}
+						}])
+
+						//Modal Dialog controller
+						function ModalAgeController($scope, $log,$modalInstance) {
+					        $scope.dob = {}
+					        $scope.dialog = {
+					            title: 'Please confirm'
+					        };
+					        $scope.ok = function () {
+					            var dob = $scope.dob.date + "/" + $scope.dob.month + "/" + $scope.dob.year;
+					            $log.info(dob);
+					            $modalInstance.close(new Date($scope.dob.year,$scope.dob.month, $scope.dob.date));
+					        };
+
+					        $scope.cancel = function () {
+					            $modalInstance.dismiss('cancel');
+					        };
+					    }
+
+					    ModalAgeController.$inject = ['$scope', '$log','$modalInstance'];
+					    recipiesApp.controller('ModalAgeController',ModalAgeController);
+					})()
+				</code>
+			</pre>
+		</div>
+	</div>
 	<script type="text/ng-template" id="age.dialog.html">
     
             <div class="modal-content">
@@ -49,7 +102,7 @@
 
                      <div class="row">
                      	<div class="col-md-2" > 
-                     		<span>Day</span>   {{dob.date}}                 		
+                     		<span>Day</span>              		
 							<select ng-model="dob.date">
 								<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
 								<option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
@@ -60,7 +113,7 @@
 							</select>
 						</div>
 						<div class="col-md-2" >
-							<span>Month</span> {{dob.month}}
+							<span>Month</span>  
 							<select ng-model="dob.month">
 								<option value="1">January</option><option value="2">February</option><option value="3">March</option>
 								<option value="4">April</option><option value="5">May</option><option value="6">June</option>
@@ -69,7 +122,7 @@
 							</select>
 						</div>
 						<div class="col-md-2" > 
-							<span>Year</span> {{dob.year}}
+							<span>Year</span> 
 							<select ng-model="dob.year">
 								<option>1999</option><option>2000</option><option>2001</option>
 							</select>

@@ -27,7 +27,7 @@
         $scope.ok = function () {
             var dob = $scope.dob.date + "/" + $scope.dob.month + "/" + $scope.dob.year;
             $log.info(dob);
-            $modalInstance.close(dob);
+            $modalInstance.close(new Date($scope.dob.year,$scope.dob.month, $scope.dob.date));
         };
 
         $scope.cancel = function () {
