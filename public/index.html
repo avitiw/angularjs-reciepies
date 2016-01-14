@@ -42,51 +42,48 @@
 		</div>
 	</div>
 	<div class="row"> 
-		<div class="col-md-12">
-			<pre>
-				<code>
-					(function(){
+		<div class="col-md-12">			
+			<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">(<span style="color: #008800; font-weight: bold">function</span>(){
 	
-					    //page controller
-						recipiesApp.controller('modalController',['$scope','$modal','$log',function ($scope, $modal,$log){
-							
-							$scope.getAge= function(){
-								var modalInstance =  $modal.open({
-					                templateUrl: 'age.dialog.html',
-					                controller: ModalAgeController,
-					                backdrop : 'static'                 
-					            });
+    <span style="color: #888888">//page controller</span>
+	recipiesApp.controller(<span style="background-color: #fff0f0">&#39;nestedController&#39;</span>,[<span style="background-color: #fff0f0">&#39;$scope&#39;</span>,<span style="background-color: #fff0f0">&#39;$modal&#39;</span>,<span style="background-color: #fff0f0">&#39;$log&#39;</span>,<span style="color: #008800; font-weight: bold">function</span> ($scope, $modal,$log){
+		
+		$scope.getAge<span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">function</span>(){
+			<span style="color: #008800; font-weight: bold">var</span> modalInstance <span style="color: #333333">=</span>  $modal.open({
+                templateUrl<span style="color: #333333">:</span> <span style="background-color: #fff0f0">&#39;age.dialog.html&#39;</span>,
+                controller<span style="color: #333333">:</span> ModalAgeController,
+                backdrop <span style="color: #333333">:</span> <span style="background-color: #fff0f0">&#39;static&#39;</span>                 
+            });
 
-					            modalInstance.result.then(function (dateOfBirth) {
-					                $scope.dateOfBirth = dateOfBirth;
-					            },function(){
-					                $log.info('Modal dismissed at: ' + new Date());
-					            });
-							}
-						}])
+            modalInstance.result.then(<span style="color: #008800; font-weight: bold">function</span> (dateOfBirth) {
+                $scope.dateOfBirth <span style="color: #333333">=</span> dateOfBirth;
+            },<span style="color: #008800; font-weight: bold">function</span>(){
+                $log.info(<span style="background-color: #fff0f0">&#39;Modal dismissed at: &#39;</span> <span style="color: #333333">+</span> <span style="color: #008800; font-weight: bold">new</span> <span style="color: #007020">Date</span>());
+            });
+		}
+	}])
 
-						//Modal Dialog controller
-						function ModalAgeController($scope, $log,$modalInstance) {
-					        $scope.dob = {}
-					        $scope.dialog = {
-					            title: 'Please confirm'
-					        };
-					        $scope.ok = function () {
-					            var dob = $scope.dob.date + "/" + $scope.dob.month + "/" + $scope.dob.year;
-					            $log.info(dob);
-					            $modalInstance.close(new Date($scope.dob.year,$scope.dob.month, $scope.dob.date));
-					        };
+	<span style="color: #888888">//Modal Dialog controller</span>
+	<span style="color: #008800; font-weight: bold">function</span> ModalAgeController($scope, $log,$modalInstance) {
+        $scope.dob <span style="color: #333333">=</span> {}
+        $scope.dialog <span style="color: #333333">=</span> {
+            title<span style="color: #333333">:</span> <span style="background-color: #fff0f0">&#39;Please confirm&#39;</span>
+        };
+        $scope.ok <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">function</span> () {
+           
+            $modalInstance.close(<span style="color: #008800; font-weight: bold">new</span> <span style="color: #007020">Date</span>($scope.dob.year,$scope.dob.month, $scope.dob.date));
+        };
 
-					        $scope.cancel = function () {
-					            $modalInstance.dismiss('cancel');
-					        };
-					    }
+        $scope.cancel <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">function</span> () {
+            $modalInstance.dismiss(<span style="background-color: #fff0f0">&#39;cancel&#39;</span>);
+        };
+    }
 
-					    ModalAgeController.$inject = ['$scope', '$log','$modalInstance'];
-					    recipiesApp.controller('ModalAgeController',ModalAgeController);
-					})()
-				</code>
-			</pre>
+    ModalAgeController.$inject <span style="color: #333333">=</span> [<span style="background-color: #fff0f0">&#39;$scope&#39;</span>, <span style="background-color: #fff0f0">&#39;$log&#39;</span>,<span style="background-color: #fff0f0">&#39;$modalInstance&#39;</span>];
+    recipiesApp.controller(<span style="background-color: #fff0f0">&#39;ModalAgeController&#39;</span>,ModalAgeController);
+})()
+</pre></div>
+
 		</div>
 	</div>
 	<script type="text/ng-template" id="age.dialog.html">
