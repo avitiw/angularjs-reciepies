@@ -4,8 +4,8 @@
 	recipiesApp.controller('parentController',['$scope','$modal','$log','$rootScope',function ($scope, $modal,$log,$rootScope){
 		
 		$scope.items = [{"id": "1","name":"Ajay Devan","Hit":"Singham"},
-        {"id": "2","Name":"Akshay Kumar","Hit": "Khiladi"},
-        {"id": "3","Name": "Amitabh Bacchan","Hit":"Sholay"}]
+        {"id": "2","name":"Akshay Kumar","Hit": "Khiladi"},
+        {"id": "3","name": "Amitabh Bacchan","Hit":"Sholay"}]
         
         var mode = $scope.mode = "list"
 		

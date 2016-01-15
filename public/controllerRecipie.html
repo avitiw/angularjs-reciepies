@@ -36,13 +36,20 @@
 		 
 			<div ng-show="visible">
 				 List
+				 <div ng-repeat ="item in $parent.items">
+				 	<div> {{item.id}} - {{item.name}}</div>
+				 </div>
 			</div>
 		</div>
 		<div ng-controller="gridController">
 		 
 		<div ng-show="visible">
 				 Grid
-
+				 <table class="table">
+				 <tr ng-repeat ="item in $parent.items">
+				 	<td> {{item.id}} </td><td> {{item.name}}</td>
+				 </tr>
+				 </table>
 			</div>
 		</div>
 	</div>
